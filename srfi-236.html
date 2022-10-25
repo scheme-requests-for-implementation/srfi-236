@@ -104,7 +104,22 @@
            #'(let ([tmp (begin expr #f)] ...) (values)))]
         [_ (syntax-violation 'independently "invalid syntax" stx)]))))</pre>
 
-    <p>An R<sup>7</sup>RS (small) implementation is also possible.</p>
+    <p>And here is an R<sup>7</sup>RS (small) implementation.</p>
+
+    <pre>(define-library (srfi 236)
+  (export independently)
+  (import (scheme base))
+  (begin
+    (define-syntax independently
+      (syntax-rules ()
+	((independently expr ...)
+	 (independently-aux (expr ...)))))
+    (define-syntax independently-aux
+      (syntax-rules ()
+	((independently-aux () (expr tmp) ...)
+	 (let ((tmp (begin expr #f)) ...) (values)))
+	((independently-aux (expr . exprs) . binds)
+	 (independently-aux exprs (expr tmp) . binds))))))</pre>
 
     <h2 id="acknowledgements">Acknowledgements</h2>
 
