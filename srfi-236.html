@@ -101,7 +101,7 @@
       (syntax-case stx ()
         [(_ expr ...)
          (with-syntax ([(tmp ...) (generate-temporaries #'(expr ...))])
-           #'(let-values ([tmp expr] ...) (values)))]
+           #'(let ([tmp (begin expr #f)] ...) (values)))]
         [_ (syntax-violation 'independently "invalid syntax" stx)]))))</pre>
 
     <p>An R<sup>7</sup>RS (small) implementation is also possible.</p>
