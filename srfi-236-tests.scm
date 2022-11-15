@@ -1,3 +1,5 @@
+;;; Contributed by Shiro Kawai
+
 (import (scheme base)
         (srfi 78)
         (srfi 236))
