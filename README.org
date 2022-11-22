@@ -11,7 +11,7 @@ library-name: independently
 
 This repository hosts [[https://srfi.schemers.org/srfi-236/][SRFI 236]]: Evaluating expressions in an unspecified order, a [[https://srfi.schemers.org/][Scheme Request for Implementation]].
 
-This SRFI is in /draft/ status.
+This SRFI is in /final/ status.
 
 The full documentation for this SRFI can be found in the [[https://srfi.schemers.org/srfi-236/srfi-236.html][SRFI Document]].
 
